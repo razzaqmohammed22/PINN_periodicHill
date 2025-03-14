@@ -84,7 +84,7 @@ net = dlnetwork(layerGraph(layers));
 
 %% Step 3: Training and Validation
 
-numEpochs = 1000;
+numEpochs = 15000;
 learningRate = 1e-4;
 lambda = 0.001;
 miniBatchSize = 8192;
