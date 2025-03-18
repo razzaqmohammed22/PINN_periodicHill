@@ -39,7 +39,7 @@ Follow these steps to set up and run the project:
 
 1.1:Open a terminal or Git Bash :
 1.2: Navigate to the directory where you want to clone the repository
-	eg: cd C:\Users\Razzaq\Documents
+	eg: cd "C:\Users\Razzaq\Documents"
 1.3: Clone the repository using
 	git clone https://github.com/razzaqmohammed22/PINN_periodicHill.git
 1.4: After cloning, navigate to the project directory:
