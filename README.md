@@ -28,7 +28,8 @@ This project develops a PINN model to simulate fluid flow in simple geometries, 
 
 Before running the project, ensure you have:
 -MATLAB R2022a or later
--Deep Learning Toolbox™
+-Deep Learning Toolbox™ (Matlab addons)
+-Statistics and Machine Learning Toolbox (Matlab addons)
 -npy-matlab Library (included in this repository for reading .npy files)
 
 # Installation & Running the Code
