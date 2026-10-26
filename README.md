@@ -1,85 +1,122 @@
-# Physics-Informed Neural Networks for Periodic Hill
+# Physics-Informed Neural Networks for Periodic Hill Flow
 
-# Project Description
-This project develops a PINN model to simulate fluid flow in simple geometries, such as periodic hills. The project integrates a neural network that incorporates the Navier-Stokes equations, which govern fluid flow. The model is trained and validated using available datasets or simplified scenarios.
+## Project Description
 
-# File Structure
+This project explores **Physics-Informed Neural Networks (PINNs)** for modelling fluid flow over periodic hills. The neural network incorporates the Navier–Stokes equations into its training process to learn flow-field variables while respecting governing physical principles.
 
- PINN_periodicHill
- ┣ data                                                 # Contains input .npy files
- ┃ ┣ komegasst_PHLL_case_1p0_Cx.npy
- ┃ ┣ komegasst_PHLL_case_1p0_Cy.npy
- ┃ ┣ komegasst_PHLL_case_1p0_Ux.npy
- ┃ ┣ komegasst_PHLL_case_1p0_Uy.npy
- ┃ ┣ komegasst_PHLL_case_1p0_p.npy
- ┃ ┗ komegasst_PHLL_case_1p0_gradU.npy
- ┣  npy-matlab                                         # MATLAB library for reading .npy files
- ┃ ┣ constructNPYheader.m
- ┃ ┣ datToNPY.m
- ┃ ┣ readNPY.m
- ┃ ┣ readNPYheader.m
- ┃ ┗ writeNPY.m
- ┣ Periodic_Hill_PINN.m                               # Main MATLAB script
- ┣ README.md                                          # Instructions to run the project
- ┗ LICENSE                                            # License file
+The model uses reference CFD data for training and validation, enabling comparison between PINN predictions and numerical simulation results.
 
+## Project Structure
 
-# Dependencies & Requirements
+```text
+PINN_periodicHill/
+├── data/
+│   ├── komegasst_PHLL_case_1p0_Cx.npy
+│   ├── komegasst_PHLL_case_1p0_Cy.npy
+│   ├── komegasst_PHLL_case_1p0_Ux.npy
+│   ├── komegasst_PHLL_case_1p0_Uy.npy
+│   ├── komegasst_PHLL_case_1p0_p.npy
+│   └── komegasst_PHLL_case_1p0_gradU.npy
+├── npy-matlab/
+│   ├── constructNPYheader.m
+│   ├── datToNPY.m
+│   ├── readNPY.m
+│   ├── readNPYheader.m
+│   └── writeNPY.m
+├── Periodic_Hill_PINN.m
+├── README.md
+└── LICENSE
+```
 
-Before running the project, ensure you have:
--MATLAB R2022a or later
--Deep Learning Toolbox™ (Matlab addons)
--Statistics and Machine Learning Toolbox (Matlab addons)
--npy-matlab Library (included in this repository for reading .npy files)
+### Directory and File Descriptions
 
-# Installation & Running the Code
+- **`data/`** — Contains NumPy (`.npy`) files with periodic hill flow coordinates, velocity components, pressure, and velocity-gradient data.
+- **`npy-matlab/`** — MATLAB utilities for reading and writing NumPy files.
+- **`Periodic_Hill_PINN.m`** — Main MATLAB script for training and evaluating the PINN model.
+- **`README.md`** — Project documentation and setup instructions.
+- **`LICENSE`** — Project licensing information.
 
-Follow these steps to set up and run the project:
+## Dependencies and Requirements
 
-# STEP-1:Clone the Repository to your local machine
+Ensure that the following software and toolboxes are installed:
 
-1.1:Open a terminal or Git Bash :
-1.2: Navigate to the directory where you want to clone the repository
-	eg: cd "C:\Users\Razzaq\Documents"
-1.3: Clone the repository using
-	git clone https://github.com/razzaqmohammed22/PINN_periodicHill.git
-1.4: After cloning, navigate to the project directory:
-    	cd PINN_periodicHill
+- MATLAB R2022a or later
+- Deep Learning Toolbox
+- Statistics and Machine Learning Toolbox
+- `npy-matlab` library (included in this repository)
 
+## Installation and Setup
 
-# STEP-2:Open MATLAB and Set Up the working directory
+### Step 1: Clone the Repository
 
-2.1: Launch MATLAB.
-2.2: In the MATLAB Current Folder window, navigate to the cloned folder
-	eg:  C:\Users\Razzaq\Documents\PINN_periodicHill
+Open a terminal or Git Bash and navigate to your preferred working directory.
 
-OR directly open the .m file from the project directory if you have matlab installed in your machine 
+For example, on Windows:
 
-# Run the Main Script
-Execute the MATLAB script to train and test the PINN model:
+```bash
+cd "C:\Users\Razzaq\Documents"
+```
 
+Clone the repository:
+
+```bash
+git clone https://github.com/razzaqmohammed22/PINN_periodicHill.git
+```
+
+Navigate to the project directory:
+
+```bash
+cd PINN_periodicHill
+```
+
+### Step 2: Open the Project in MATLAB
+
+1. Launch MATLAB.
+2. Navigate to the cloned `PINN_periodicHill` directory using the **Current Folder** panel.
+3. Verify that `Periodic_Hill_PINN.m` and the `data/` directory are present.
+
+Alternatively, open `Periodic_Hill_PINN.m` directly from the project folder.
+
+### Step 3: Run the Main Script
+
+Run the following command in the MATLAB Command Window:
+
+```matlab
 Periodic_Hill_PINN
+```
 
+Ensure that the current working directory is the project root before executing the script.
 
-# Expected Output
+## Expected Outputs
 
-After running the main script 
-Epoch number , Training Loss = , Validation Loss = 
-PINN Training Time:
-Comparison Table (10 Validation Samples):
-Full Dataset Mean Absolute Error: 
-Validation Mean Absolute Error: 
-Full Dataset Root Mean Squared Error: 
-Validation Mean Absolute Error: 
-Analysis Summary:
-3 figures and a plot
+After running the main script, the program is expected to report:
 
-# Troubleshooting & FAQs
+- Training and validation losses across epochs
+- PINN training time
+- Comparison table for 10 validation samples
+- Mean Absolute Error (MAE) for the full dataset
+- MAE for the validation dataset
+- Root Mean Squared Error (RMSE) for the full dataset
+- Analysis summary
+- Three figures and an additional plot
 
- File Not Found Error?
-Ensure you are in the correct directory and that the  .npy  files are present.
+*Actual outputs depend on the dataset, model configuration, and successful execution of the script.*
 
+## Troubleshooting
 
+### File Not Found Error
 
-# License
-This project is licensed under the MIT License. See the `LICENSE` file for details.
+If MATLAB reports that a file cannot be found:
+
+1. Check that the current working directory is the project root.
+2. Confirm that all required `.npy` files are present in the `data/` directory.
+3. Verify that the script uses the correct relative paths.
+4. Ensure that the `npy-matlab/` directory is available on the MATLAB path.
+
+### Missing Toolbox
+
+If MATLAB reports an unavailable function, verify that the required toolbox is installed and licensed.
+
+## License
+
+This project is licensed under the MIT License. See the [`LICENSE`](LICENSE) file for details.
